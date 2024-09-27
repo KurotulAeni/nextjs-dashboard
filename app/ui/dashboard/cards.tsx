@@ -27,7 +27,7 @@ const {totalPaidInvoices, numberOfInvoices, totalPendingInvoices, numberOfCustom
         title="Total Customers"
         value={numberOfCustomers}
         type="customers"
-      /> */}
+      />
     </>
   );
 }
