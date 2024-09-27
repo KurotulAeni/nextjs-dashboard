@@ -6,7 +6,7 @@ import { lusitana } from '@/app/ui/fonts';
 import { Suspense } from 'react';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { fetchInvoicesPages } from '@/app/lib/data';
-import { usePathname } from 'next/navigation';
+
  
 export default async function Page({
   searchParams,
@@ -19,15 +19,8 @@ export default async function Page({
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
   const totalPages = await fetchInvoicesPages (query)
-  const pathname = usePathname();
-
-
-  const createPageURL = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set('page', pageNumber.toString());
-    return `${pathname}?${params.toString()}`;
-  };
  
+
   return (
     <div className="w-full">
       <div className="flex w-full items-center justify-between">
